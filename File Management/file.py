@@ -81,7 +81,7 @@ def writeFile(result):
 
 
 # test
-#roomHeight, roomWidth, numBots, rendezLocation, robotLocations = readFile()
+roomHeight, roomWidth, numBots, rendezLocation, robotLocations = readFile()
 arr = [100000001,
        100000010,
        100000010,

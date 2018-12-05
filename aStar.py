@@ -4,7 +4,7 @@ Created on Nov 29, 2018
 @author: Nathan
 '''
 import dataStructures
-from file import readFile
+from file import readFile, writeFile
 
 
 def aStar(enviro, startList, rendev):
@@ -140,6 +140,7 @@ if __name__ == '__main__':
     solutions = aStar(enviro, startList, rendev)
     for sol in solutions:
         print (sol)
+    
         
                 
             

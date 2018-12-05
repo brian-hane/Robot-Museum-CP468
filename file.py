@@ -50,18 +50,34 @@ def readFile(fileName):
     return enviro, startList, rendev
 
 
-def writeFile(result):
-    invalidFile = True
-    while invalidFile:
-        try:
-            filename = input("Enter output file name:")
-            outputStream = open(filename, "w", encoding="utf-8")
-            for x in result:
-                outputStream.writelines(str(x))
-                outputStream.write("\n")
-            invalidFile = False
-        except:
-            print("File not found")
+def writeFile(fileName, rendev, result):
+    try:
+        outputStream = open(fileName, "w+")
+    except:
+        raise Exception("Error writing to output file.")
+
+    outputStream.write("Rendezvous Point: {0}\n\n".format(rendev))
+
+    numRobots = len(result)
+    for i in range(numRobots):
+        outputStream.write("------Robot {0}------\n".format(i + 1))
+        outputStream.write("Start location: {0}\n".format(result[i][0]))
+        outputStream.write("Computed path: ")
+
+        solution = result[i][1]
+        if solution == None:
+            outputStream.write("No solution found\n\n")
+        else:
+            numCoords = len(solution)
+            for j in range(numCoords):
+                outputStream.write("{0}".format(solution[j]))
+                if (j != numCoords - 1):
+                    outputStream.write(", ")
+                    if ((j + 1) % 10 == 0):
+                        outputStream.write("\n")
+                else:
+                    outputStream.write("\n\n")
+
     outputStream.close()
     return
 
@@ -72,11 +88,3 @@ if __name__ == '__main__':
     print(enviro)
     print(startList)
     print(rendev)
-
-    arr = [100000001,
-        100000010,
-        100000010,
-        100000010,
-        100000010,
-        100000010]
-    writeFile(arr)

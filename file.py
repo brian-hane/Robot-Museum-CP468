@@ -73,10 +73,10 @@ if __name__ == '__main__':
     print(startList)
     print(rendev)
 
-    '''arr = [100000001,
+    arr = [100000001,
         100000010,
         100000010,
         100000010,
         100000010,
         100000010]
-    writeFile(arr)'''
+    writeFile(arr)

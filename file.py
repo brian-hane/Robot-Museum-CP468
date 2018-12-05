@@ -50,30 +50,20 @@ def readFile(fileName):
     return enviro, startList, rendev
 
 
-'''def writeFile(result):
+def writeFile(result):
     invalidFile = True
-   # filename = "output_test.txt"
-  #  outputStream = open("output_test.txt", "w", encoding="utf-8")
-
     while invalidFile:
         try:
             filename = input("Enter output file name:")
-            if filename == "output_test.txt":
-                print("true")
-            else:
-                print("fuck")
-            outputStream = open("filename", "w", encoding="utf-8")
-
+            outputStream = open(filename, "w", encoding="utf-8")
             for x in result:
-                outputStream.write(str(x))
+                outputStream.writelines(str(x))
                 outputStream.write("\n")
-                print("file")
             invalidFile = False
         except:
             print("File not found")
-
     outputStream.close()
-    return'''
+    return
 
 if __name__ == '__main__':
     # test
